@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — neutral B2B SaaS, light + dark                      */
+/* ------------------------------------------------------------------ */
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --surface-2: #f2f4f7;
+  --surface-3: #e9edf2;
+  --border: #e2e6ec;
+  --border-strong: #cfd5df;
+  --text: #1a2231;
+  --text-muted: #5c6b80;
+  --text-subtle: #8593a6;
+
+  --primary: #2f6bff;
+  --primary-hover: #1f57e6;
+  --primary-weak: #eaf1ff;
+  --primary-text: #ffffff;
+
+  --pos: #0f8a4d;
+  --pos-weak: #e6f4ec;
+  --neg: #c8352b;
+  --neg-weak: #fbeceb;
+  --warn: #b26a00;
+  --warn-weak: #fbf1e0;
+  --info: #2f6bff;
+  --info-weak: #eaf1ff;
+  --neutral-weak: #eef1f5;
+
+  --ring: #2f6bff;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.1);
+  --shadow-lg: 0 8px 24px rgba(16, 24, 40, 0.12);
+}
+
+.dark {
+  --bg: #0e1117;
+  --surface: #161b23;
+  --surface-2: #1c222c;
+  --surface-3: #232b37;
+  --border: #2a323f;
+  --border-strong: #3a4453;
+  --text: #e7ebf2;
+  --text-muted: #9aa7b8;
+  --text-subtle: #6b7889;
+
+  --primary: #4d84ff;
+  --primary-hover: #6b99ff;
+  --primary-weak: #1a2740;
+  --primary-text: #0e1117;
+
+  --pos: #3ecf8e;
+  --pos-weak: #16281f;
+  --neg: #f2635a;
+  --neg-weak: #2a1a19;
+  --warn: #e0a13a;
+  --warn-weak: #2a2113;
+  --info: #4d84ff;
+  --info-weak: #1a2740;
+  --neutral-weak: #232b37;
+
+  --ring: #4d84ff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-weak: var(--primary-weak);
+  --color-primary-text: var(--primary-text);
+
+  --color-pos: var(--pos);
+  --color-pos-weak: var(--pos-weak);
+  --color-neg: var(--neg);
+  --color-neg-weak: var(--neg-weak);
+  --color-warn: var(--warn);
+  --color-warn-weak: var(--warn-weak);
+  --color-info: var(--info);
+  --color-info-weak: var(--info-weak);
+  --color-neutral-weak: var(--neutral-weak);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'JetBrains Mono', 'Menlo', monospace;
+
+  --radius-sm: 5px;
+  --radius-md: 7px;
+  --radius-lg: 10px;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--primary-weak);
+}
+
+/* Thin scrollbars for data-dense surfaces */
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+.scroll-thin::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 8px;
+  border: 2px solid var(--surface);
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+}
+.animate-in {
+  animation: fade-in 0.12s ease-out;
+}
